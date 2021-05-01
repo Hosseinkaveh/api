@@ -62,3 +62,6 @@ F:\Mohammadpour\Angular\practis\api\Api\bin\Debug\net5.0\System.IdentityModel.To
 F:\Mohammadpour\Angular\practis\api\Api\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 F:\Mohammadpour\Angular\practis\api\Api\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
 F:\Mohammadpour\Angular\practis\api\Api\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\Mohammadpour\Angular\practis\api\api\bin\Debug\net5.0\Data\UserSeedData.json
+F:\Mohammadpour\Angular\practis\api\Api\bin\Debug\net5.0\AutoMapper.dll
+F:\Mohammadpour\Angular\practis\api\Api\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

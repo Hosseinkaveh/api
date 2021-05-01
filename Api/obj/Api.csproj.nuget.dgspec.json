@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Mohammadpour\\Angular\\practis\\api\\Api\\Api.csproj": {}
+    "F:\\Mohammadpour\\Angular\\practis\\api\\api\\Api.csproj": {}
   },
   "projects": {
-    "F:\\Mohammadpour\\Angular\\practis\\api\\Api\\Api.csproj": {
+    "F:\\Mohammadpour\\Angular\\practis\\api\\api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Mohammadpour\\Angular\\practis\\api\\Api\\Api.csproj",
+        "projectUniqueName": "F:\\Mohammadpour\\Angular\\practis\\api\\api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "F:\\Mohammadpour\\Angular\\practis\\api\\Api\\Api.csproj",
+        "projectPath": "F:\\Mohammadpour\\Angular\\practis\\api\\api\\Api.csproj",
         "packagesPath": "C:\\Users\\pouria\\.nuget\\packages\\",
-        "outputPath": "F:\\Mohammadpour\\Angular\\practis\\api\\Api\\obj\\",
+        "outputPath": "F:\\Mohammadpour\\Angular\\practis\\api\\api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -45,6 +45,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.5, )"

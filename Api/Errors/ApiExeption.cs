@@ -5,8 +5,8 @@ namespace Api.Errors
         public ApiExeption(int statusCode, string messages=null, string details=null)
         {
             this.statusCode = statusCode;
-            Messages = messages;
-            Details = details;
+            this.Messages = messages;
+            this.Details = details;
         }
 
         public int statusCode { get; set; }

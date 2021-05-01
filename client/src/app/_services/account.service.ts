@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, JsonpClientBackend} from '@angular/common/http'
 import { Observable, ReplaySubject } from 'rxjs';
-import { User } from '../_models/user';
+
 import {map } from 'rxjs/operators'
+import { User } from '../_models/user';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
-   baseUrl='https://localhost:5001/api/';
+   baseUrl=environment.baseUrl;
    private CurentUserSource = new ReplaySubject<User>(1);
    curentusers$ = this.CurentUserSource.asObservable();
 
