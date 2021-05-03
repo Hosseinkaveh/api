@@ -22,7 +22,8 @@ namespace Api.Services
         {
            var claims = new List<Claim>()
            {
-             new Claim(JwtRegisteredClaimNames.Name,users.UserName)
+               new Claim(ClaimTypes.NameIdentifier,users.UserName),
+             new Claim(JwtRegisteredClaimNames.NameId,users.UserName)
            };
 
            var creds = new SigningCredentials(_key,SecurityAlgorithms.HmacSha512Signature);

@@ -23,7 +23,7 @@
 <div class=" dropdown" *ngIf="accountService.curentusers$|async" dropdown>
   <a class=" dropdown-toggle" dropdownToggle>Welcome user</a>
   <ul class="dropdown-menu mt-3" *dropdownMenu>
-    <li><a  class="dorpdown-item pl-3">Edit Profile</a></li>
+    <li><a routerLink='/Member/edit' class="dorpdown-item pl-3">Edit Profile</a></li>
     <li class="divider dropdown-divider"></li>
      <li><a  class="dorpdown-item pl-3" (click)="logOut()">LogOut</a></li>
   </ul>

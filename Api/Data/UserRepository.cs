@@ -20,16 +20,16 @@ namespace Api.Data
            _mapper= mapper;
 
         }
-        // public async Task<MemberDto> GetUserByIdAsync(int id)
-        // {
-        //   return await _context.users
-        //   .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
-        //   .FirstAsync(x =>x.Id == id);
-        // }
 
-        public async Task<MemberDto> GetUserByUsernameAsync(string username)
+        public async Task<AppUsers> GetUserByUsernameAsync(string username)
         {
             return await _context.users
+            .Where(x => x.UserName == username.ToLower())
+            .SingleOrDefaultAsync();
+        }
+        public async Task<MemberDto> GetMemberAsync(string username)
+        {
+           return await _context.users
             .Where(x => x.UserName == username.ToLower())
             .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
             .SingleOrDefaultAsync();
