@@ -6,7 +6,6 @@ import { Member } from 'src/app/_models/Member';
 import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/_services/account.service';
 import { MembersService } from 'src/app/_services/members.service';
-import { MemberListComponent } from '../member-list/member-list.component';
 
 @Component({
   selector: 'app-member-edit',

@@ -25,6 +25,7 @@ namespace Api.Data
         {
             return await _context.users
             .Where(x => x.UserName == username.ToLower())
+            .Include(x =>x.Photos)
             .SingleOrDefaultAsync();
         }
         public async Task<MemberDto> GetMemberAsync(string username)

@@ -12,8 +12,10 @@ namespace Api.Extension
     {
         public static IServiceCollection AddApplictionServices(this IServiceCollection services,IConfiguration config)
         {
+            services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
             services.AddScoped<ITokenservice,Tokenservece>();
             services.AddScoped<IUserRepository,UserRepository>();
+            services.AddScoped<IPhotoService,PhotoService>();
             services.AddAutoMapper(typeof(AutoMaperProfiles).Assembly);
             services.AddDbContext<DataContext>(options=>{
                 options.UseSqlite(config.GetConnectionString("DefaultConnection"));
