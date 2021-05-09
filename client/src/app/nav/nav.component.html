@@ -20,8 +20,9 @@
 
 
 
-<div class=" dropdown" *ngIf="accountService.curentusers$|async" dropdown>
-  <a class=" dropdown-toggle" dropdownToggle>Welcome user</a>
+<div class=" dropdown" *ngIf="accountService.curentusers$|async as user" dropdown>
+  <img src="{{user.photoUrl}}" alt="{{user.photoUrl}}">
+  <a class=" dropdown-toggle ml-2" dropdownToggle >Welcome user</a>
   <ul class="dropdown-menu mt-3" *dropdownMenu>
     <li><a routerLink='/Member/edit' class="dorpdown-item pl-3">Edit Profile</a></li>
     <li class="divider dropdown-divider"></li>

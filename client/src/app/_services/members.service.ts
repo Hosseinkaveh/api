@@ -47,4 +47,11 @@ export class MembersService {
       })
     );
   }
+  setMainPhoto(photoid:number){
+    return this.http.put(this.Url + 'Users/set-main-photo/'+photoid,{});
+  }
+
+  deletePhoto(photoid:number){
+    return this.http.delete(this.Url+'users/delete-photo/'+photoid);
+  }
 }

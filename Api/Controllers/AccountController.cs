@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +15,14 @@ namespace Api.Controllers
     {
          private readonly DataContext _context;
          private readonly ITokenservice _tokenservice;
-        public AccountController(DataContext context,ITokenservice tokenservice)
+
+         private readonly IUserRepository _userrepository;
+        public AccountController(DataContext context,ITokenservice tokenservice,IUserRepository userrepository)
 
         {
             _context = context;
             _tokenservice = tokenservice;
+            _userrepository = userrepository;
         }
 
         [HttpPost("Register")]
@@ -48,8 +52,9 @@ namespace Api.Controllers
         [HttpPost("Login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
-         var user = await _context.users
-         .SingleOrDefaultAsync(x => x.UserName == loginDto.username.ToLower());
+            var user = await _userrepository.GetUserByUsernameAsync(loginDto.username.ToLower());
+        //  var user = await _context.users
+        //  .SingleOrDefaultAsync(x => x.UserName == loginDto.username.ToLower());
 
          if(user == null) return Unauthorized("Invalid Username or password");
 
@@ -66,7 +71,8 @@ namespace Api.Controllers
          
           return new UserDto{
             username = user.UserName,
-            token = _tokenservice.CreateToken(user)
+            token = _tokenservice.CreateToken(user),
+            photoUrl = user.Photos.FirstOrDefault(x =>x.IsMain).Url
 
         };
 
