@@ -20,6 +20,7 @@ namespace Api.Controllers
             return "secret Text";
 
         }
+        
          [HttpGet("not-fount")]
         public ActionResult<AppUsers> GetNotFound()
         {
@@ -39,7 +40,7 @@ namespace Api.Controllers
          [HttpGet("bad-request")]
         public ActionResult<string> GetBadRequest()
         {
-            return BadRequest();
+            return BadRequest("bad req");
 
         }
         

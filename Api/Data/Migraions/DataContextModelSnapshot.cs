@@ -91,6 +91,21 @@ namespace Api.Data.Migraions
                     b.ToTable("Photos");
                 });
 
+            modelBuilder.Entity("Api.Entities.UserLike", b =>
+                {
+                    b.Property<int>("SourceUesrId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("LikedUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("SourceUesrId", "LikedUserId");
+
+                    b.HasIndex("LikedUserId");
+
+                    b.ToTable("Likes");
+                });
+
             modelBuilder.Entity("Api.Entities.Photo", b =>
                 {
                     b.HasOne("Api.Entities.AppUsers", "AppUser")
@@ -102,8 +117,31 @@ namespace Api.Data.Migraions
                     b.Navigation("AppUser");
                 });
 
+            modelBuilder.Entity("Api.Entities.UserLike", b =>
+                {
+                    b.HasOne("Api.Entities.AppUsers", "LikedUser")
+                        .WithMany("LikedByUsers")
+                        .HasForeignKey("LikedUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Api.Entities.AppUsers", "SourceUser")
+                        .WithMany("LikedUsers")
+                        .HasForeignKey("SourceUesrId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("LikedUser");
+
+                    b.Navigation("SourceUser");
+                });
+
             modelBuilder.Entity("Api.Entities.AppUsers", b =>
                 {
+                    b.Navigation("LikedByUsers");
+
+                    b.Navigation("LikedUsers");
+
                     b.Navigation("Photos");
                 });
 #pragma warning restore 612, 618

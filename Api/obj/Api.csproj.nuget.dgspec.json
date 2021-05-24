@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Mohammadpour\\Angular\\practis\\api\\api\\Api.csproj": {}
+    "C:\\Users\\pouria\\Desktop\\New folder\\api-master\\api\\Api.csproj": {}
   },
   "projects": {
-    "F:\\Mohammadpour\\Angular\\practis\\api\\api\\Api.csproj": {
+    "C:\\Users\\pouria\\Desktop\\New folder\\api-master\\api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Mohammadpour\\Angular\\practis\\api\\api\\Api.csproj",
+        "projectUniqueName": "C:\\Users\\pouria\\Desktop\\New folder\\api-master\\api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "F:\\Mohammadpour\\Angular\\practis\\api\\api\\Api.csproj",
+        "projectPath": "C:\\Users\\pouria\\Desktop\\New folder\\api-master\\api\\Api.csproj",
         "packagesPath": "C:\\Users\\pouria\\.nuget\\packages\\",
-        "outputPath": "F:\\Mohammadpour\\Angular\\practis\\api\\api\\obj\\",
+        "outputPath": "C:\\Users\\pouria\\Desktop\\New folder\\api-master\\api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -73,7 +73,7 @@
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[6.10.2, )"
+              "version": "[6.11.0, )"
             }
           },
           "imports": [

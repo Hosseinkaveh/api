@@ -22,9 +22,10 @@ namespace Api.Services
         {
            var claims = new List<Claim>()
            {
-               new Claim(ClaimTypes.Name,users.UserName),
-               new Claim(ClaimTypes.NameIdentifier,users.UserName),
-             new Claim(JwtRegisteredClaimNames.NameId,users.UserName)
+            //    new Claim(ClaimTypes.Name,users.UserName),
+            //    new Claim(ClaimTypes.NameIdentifier,users.UserName),
+             new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.NameId,users.Id.ToString()),
+             new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.UniqueName,users.UserName),
            };
 
            var creds = new SigningCredentials(_key,SecurityAlgorithms.HmacSha512Signature);
@@ -37,7 +38,7 @@ namespace Api.Services
 
            var tokenHandler = new JwtSecurityTokenHandler();
 
-           var token =tokenHandler.CreateToken(tokenDescription);
+           var token =  tokenHandler.CreateToken(tokenDescription);
 
            return tokenHandler.WriteToken(token);
         }

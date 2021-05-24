@@ -4,6 +4,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { take } from 'rxjs/operators';
 import { Member } from 'src/app/_models/Member';
+import { Photo } from 'src/app/_models/Photo';
 import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/_services/account.service';
 import { MembersService } from 'src/app/_services/members.service';
@@ -37,7 +38,7 @@ export class PhotoEditorComponent implements OnInit {
     this.memberservice.setMainPhoto(photo.id).subscribe(()=>{
       this.user.photoUrl = photo.url;
       this.accountservice.setCurnetUser(this.user);
-      this.member.photosUrl = photo.url;
+      this.member.photoUrl = photo.url;
       this.member.photos.forEach(p=>{
         if(p.isMain) p.isMain = false;
         if(p.id === photo.id) p.isMain = true;
@@ -67,8 +68,14 @@ export class PhotoEditorComponent implements OnInit {
     }
     this.uploader.onSuccessItem = (item,response,status,header)=>{
       if(response){
-        const photo = JSON.parse(response);
+        const photo :Photo= JSON.parse(response);
         this.member.photos.push(photo);
+
+        if(photo.isMain){
+          this.user.photoUrl = photo.url;
+          this.member.photoUrl = photo.url;
+          this.accountservice.setCurnetUser(this.user)
+        }
 
       }
     }

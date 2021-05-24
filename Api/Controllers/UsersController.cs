@@ -11,6 +11,8 @@ using AutoMapper;
 using Api.DTOs;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using Api.Helpers;
+using Api.Extension;
 
 namespace Api.Controllers
 {
@@ -28,10 +30,19 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
         {
+            var user  = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+            userParams.CurrentUsername = user.UserName;
 
-            return Ok(await  _userRepository.GetUsersAsync());
+            if(string.IsNullOrWhiteSpace(userParams.Gender))
+            userParams.Gender = user.Gender =="male" ? "female":"male";
+
+            var Members = await  _userRepository.GetUsersAsync(userParams);
+            Response.AddPageinationHeaders(Members.CurrentPage,Members.PageSize,
+               Members.TotalCount,Members.TotalPage);
+
+            return Ok(Members);
         }
 
          [HttpGet("{username}",Name="GetUser")]
